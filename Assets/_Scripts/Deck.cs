@@ -3,8 +3,12 @@ using UnityEngine;
 
 public class Deck
 {
-    public List<Card> cards = new List<Card>();
+    public const int NumberOfSuits = 4;
+    public const int NumberOfRanks = 13;
+
+    private List<Card> cards = new List<Card>();
     private int deckCounter;
+
     public Deck()
     {
         deckCounter = 0;
@@ -13,9 +17,9 @@ public class Deck
     }
     private void CreateDeck()
     {
-        for (int i = 0; i < 4; i++)
-            for (int j = 0; j < 13; j++)
-                cards.Add(new Card(j + 1, (SUIT)i));
+        for (int i = 0; i < NumberOfSuits; i++)
+            for (int j = 0; j < NumberOfRanks; j++)
+                cards.Add(new Card((RANK)j + 1, (SUIT)i));
     }
     private void ShuffleDeck()
     {
